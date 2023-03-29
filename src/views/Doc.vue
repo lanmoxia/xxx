@@ -2,7 +2,7 @@
   <div>
     <TopNav/>
     <div class="content">
-      <aside>
+      <aside v-if="menuVisible">
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -26,8 +26,15 @@
 <script>
 
 import TopNav from '../components/TopNav.vue'
+import {inject} from 'vue'
+
 export default {
-  components: {TopNav}
+  components: {TopNav},
+
+  setup(){
+    const menuVisible = inject('menuVisible')
+    return {menuVisible}
+  }
 }
 </script>
 
