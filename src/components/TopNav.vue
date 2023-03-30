@@ -29,6 +29,7 @@ export default {
   padding: 16px;
   position: relative;
   z-index: 10;
+  justify-content: center;
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -40,6 +41,10 @@ export default {
     > li {
       margin: 0 1em;
     }
+  }
+  @media (max-width: 500px){
+    >.menu{display: none}
+    >.logo{margin: 0 auto}
   }
 }
 </style>
