@@ -17,10 +17,7 @@ export default {
 
     // 移动端路由改变 menuVisible 的值
     router.afterEach(() => {
-      if(width <= 500){
-        console.log(menuVisible.value)
-        menuVisible.value = false
-      }
+      if(width <= 500){menuVisible.value = false}
     })
   }
 }
