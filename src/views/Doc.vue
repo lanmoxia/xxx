@@ -2,24 +2,58 @@
   <div class="layout">
     <TopNav class="nav"/>
     <div class="content">
-      <aside v-if="menuVisible">
-        <h2>组件列表</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-        </ol>
+      <aside class="aside" v-if="menuVisible">
+        <h2>Document</h2>
+        <div class="doc-wrapper">
+          <ol>
+            <li><router-link to="/doc/intro">介绍</router-link></li>
+            <li><router-link to="/doc/install">安装</router-link></li>
+            <li><router-link to="/doc/get-started">开始</router-link></li>
+          </ol>
+        </div>
+        <h2>Components</h2>
+        <div class="components-wrapper">
+          <ol>
+            <li>
+              <h5>Basic</h5>
+              <router-link to="/doc/grid">Layout 布局</router-link>
+              <router-link to="/doc/button">Button 按钮</router-link>
+            </li>
+            <li>
+              <h5>Form</h5>
+              <router-link to="/doc/radio">Radio 按钮</router-link>
+              <router-link to="/doc/switch">Switch 开关</router-link>
+            </li>
+            <li>
+              <h5>Data</h5>
+              <router-link to="/doc/pagination">Pagination 分页</router-link>
+            </li>
+            <li>
+              <h5>Notice</h5>
+              <ul>
+                <li>
+                  <router-link to="/doc/tabs">Tabs 标签页</router-link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h5>Navigation</h5>
+              <ul>
+                <li>
+                  <router-link to="/doc/cascade">Cascade 级联选择</router-link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h5>Others</h5>
+              <router-link to="/doc/dialog">Dialog 对话框</router-link>
+            </li>
+          </ol>
+        </div>
       </aside>
-      <main><router-view/></main>
+      <main>
+        <router-view/>
+      </main>
     </div>
   </div>
 </template>
@@ -39,47 +73,84 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$color: #243d54;
 .layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  >.nav {flex-shrink: 0;}
-  >.content {
+  .nav{
+    position: relative;
+    z-index: 999;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #243d54;
+    }
+  }
+  .content {
+    display: flex;
     flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
-    @media (max-width: 500px) {
-      padding-left: 0;
+    margin-top: 40px;
+    position: relative;
+    main {
+      flex-grow: 1;
+      padding: 20px;
+      margin-top: -40px;
+    }
+    .aside {
+      max-width: 200px;
+      position: relative;
+      top: -60px;
+      left: 0;
+      padding-top: 60px;
+      color: #243d54;
+      z-index: 10;
+      background-image: linear-gradient(to top, #fff 0,#f3f8fd 100%);
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.15);
+        z-index: 20;
+      }
+      h5,
+      h2 {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 25px;
+      }
+      .doc-wrapper, .components-wrapper {
+        a {
+          display: inline-block;
+          padding-left: 35px;
+          height: 40px;
+          line-height: 40px;
+          width: 100%;
+          &:hover {
+            color: #243d54;
+            border-bottom: none;
+            transition: color ease-in-out 0.35s;
+          }
+        }
+      }
+      .components-wrapper > ol > li > h5{
+        color: #2f515d;
+      }
     }
   }
 }
-.content {
-  display: flex;
-  > aside {flex-shrink: 0}
-  > main {
-    flex-grow: 1;
-    padding: 16px;
-    background: lightgreen;
-  }
-}
-aside {
-  background: lightblue;
-  width: 150px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 70px 16px 16px;
-  height: 100%;
-  > h2 {
-    margin-bottom: 4px;
-  }
-  > ol {
-    > li {
-      padding: 4px 0;
-    }
-  }
-}
-main {
-  overflow: auto;
+.router-link-active {
+  color: #243d54;
+  background-color: #d7e5f1;
+  border-right: 3px solid #243d54;
+  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
 }
 </style>

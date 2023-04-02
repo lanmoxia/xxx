@@ -1,9 +1,10 @@
 <template>
   <div class="topNav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <router-link to="/">首页</router-link>
+    </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <vi><router-link to="/doc">文档</router-link></vi>
     </ul>
     <span class="toggleAside" @click="toggleMenu"></span>
   </div>
@@ -23,16 +24,13 @@ export default {
 
 <style lang="scss" scoped>
 .topNav {
-  background: pink;
-  display: flex;
-  padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  z-index: 10;
+  padding: 16px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  color: #243d54;
+  background-image: linear-gradient(to top,#f3f8fd 0,#fff 100%);
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -50,8 +48,7 @@ export default {
     background: deeppink;
     position: absolute;
     left: 16px;
-    top: 50%;
-    transform: translate(-50%);
+    top: 20px;
     border-radius: 50%;
     display: none;
   }
