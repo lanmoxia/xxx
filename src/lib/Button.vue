@@ -1,20 +1,26 @@
 <template>
-  <button class="xxx-button">
+  <button class="xxx-button"
+          :class="{[`xxx-theme-${theme}`]: theme}">
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
 export default {
-
+    props: {
+      theme: {
+        type: String,
+        default: 'button'
+      }
+    }
 }
 </script>
 
 <style lang="scss">
 $h: 32px;
-$border-color: #d9d9d9;
-$color: #333;
-$blue: #40a9ff;
+$border-color: rgba(0, 0, 0, 0.15);
+$color: rgba(0, 0, 0, 0.65);
+$blue: rgb(36, 61, 84);
 $radius: 4px;
 .xxx-button {
   box-sizing: border-box;
@@ -43,6 +49,22 @@ $radius: 4px;
   }
   &::-moz-focus-inner {
     border: 0;
+  }
+  &.xxx-theme-link{
+    border-color: transparent;
+    box-shadow: none;
+    color: $blue;
+    &:hover,&:focus{
+      color: lighten($blue, 50%);
+    }
+  }
+  &.xxx-theme-text{
+    border-color: transparent;
+    box-shadow: none;
+    color: $color;
+    &:hover,&:focus{
+      background: darken(#f3f8fd, 2%);
+    }
   }
 }
 </style>

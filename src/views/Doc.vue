@@ -3,7 +3,7 @@
     <TopNav class="nav"/>
     <div class="content">
       <aside class="aside" v-if="menuVisible">
-        <h2>Document</h2>
+        <h3>Document</h3>
         <div class="doc-wrapper">
           <ol>
             <li><router-link to="/doc/intro">介绍</router-link></li>
@@ -11,7 +11,7 @@
             <li><router-link to="/doc/get-started">开始</router-link></li>
           </ol>
         </div>
-        <h2>Components</h2>
+        <h3>Components</h3>
         <div class="components-wrapper">
           <ol>
             <li>
@@ -98,7 +98,7 @@ $color: #243d54;
     position: relative;
     main {
       flex-grow: 1;
-      padding: 20px;
+      padding: 45px;
       margin-top: -40px;
     }
     .aside {
@@ -122,7 +122,7 @@ $color: #243d54;
         z-index: 20;
       }
       h5,
-      h2 {
+      h3 {
         height: 40px;
         line-height: 40px;
         padding-left: 25px;
