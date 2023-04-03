@@ -74,6 +74,16 @@
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
+      <div class="demo">
+        <h3>支持 loading</h3>
+        <div class="demo-component">
+          <div>
+            <Button loading>加载中</Button>
+            <Button>加载完成</Button>
+          </div>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
     </div>
   </div>
 </template>

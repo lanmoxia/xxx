@@ -1,6 +1,6 @@
 <template>
-  <button class="xxx-button"
-          :class="classes" :disabled="disabled">
+  <button class="xxx-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="xxx-loadingIndicator"></span>
     <slot/>
   </button>
 </template>
@@ -9,7 +9,7 @@
 import{computed} from 'vue';
 
 export default {
-    props: {
+  props: {
       theme: {
         type: String,
         default: 'button'
@@ -25,16 +25,21 @@ export default {
       disabled: {
         type: Boolean,
         default: false
+      },
+      loading: {
+        type: Boolean,
+        default: false
       }
     },
   setup(props:any){
-    const {theme, size, level, disabled} = props
+    const {theme, size, level, disabled, loading} = props
     const classes = computed(() => {
       return {
         [`xxx-theme-${theme}`]: theme,
         [`xxx-size-${size}`]: size,
         [`xxx-level-${level}`]: level,
-        [`xxx-disabled-${disabled}`]: disabled
+        [`xxx-disabled-${disabled}`]: disabled,
+        [`xxx-loading-${loading}`]: loading
       }
     })
     return {classes}
@@ -188,5 +193,20 @@ $grey: gray;
       color: $grey;
     }
   }
+  >.xxx-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: xxx-spin 1s infinite linear
+  }
+}
+@keyframes xxx-spin {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
 }
 </style>
