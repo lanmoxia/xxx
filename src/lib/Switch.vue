@@ -3,46 +3,78 @@
       class="xxx-switch"
       @click="toggle"
       :class="{'xxx-checked': value}"
-      :style="{background, zoom}"
+      :style="{background:switchBackground, zoom}"
       :disabled="disabled">
-    <span></span>
+    <span class="pellet"></span>
+    <span class="text" :style="{background: textBackground}">{{toggleText}}</span>
   </button>
 </template>
 
 <script lang="ts">
 
 import {computed} from 'vue';
-
+import Button from './Button.vue'
 export default {
+  components: {Button},
   props: {
     value:  Boolean,
     zoom: {
       type: String,
       default: ''
     },
-    activeColor: {
+    onBackground: {
       type: String,
       default: ''
     },
-    inactiveColor: {
+    offBackground: {
       type: String,
       default: ''
     },
     disabled: {
       type: Boolean,
       default: false
+    },
+    onText: {
+      type: String,
+      default: ''
+    },
+    offText: {
+      type: String,
+      default: ''
+    },
+    onTextBackground: {
+      type: String,
+      default: ''
+    },
+    offTextBackground: {
+      type: String,
+      default: ''
     }
   },
   setup(props:any, context:any){
-    const {activeColor, inactiveColor} = props
+    const {onBackground, offBackground, onText, offText, onTextBackground, offTextBackground} = props
     const setBackground = () => {
-      if((activeColor.length > 0) && (inactiveColor.length > 0)){
-        return props.value ? activeColor : inactiveColor
-      }else {return props.value ? '#1890ff' : '#bfbfbf'}
+      if(onBackground.length && offBackground.length){
+        return props.value ? onBackground : offBackground
+      }else {return props.value ? '#243D54FF' : '#bfbfbf'}
     }
-    const background = computed(() => {return setBackground()})
+    const setText = () => {
+      if(onText && offText) {
+        return props.value ? onText : offText
+      }
+    }
+    const setTextBackground = () => {
+      if(onTextBackground && offTextBackground){
+        return props.value ? onTextBackground : offBackground
+      }else{
+        return props.value ? '#243D54FF' : '#bfbfbf'
+      }
+    }
+    const switchBackground = computed(() => {return setBackground()})
+    const toggleText = computed(() => {return setText()})
+    const textBackground = computed(() => {return setTextBackground()})
     const toggle = () => {context.emit('update:value', !props.value)}
-    return{toggle, background}
+    return{toggle, switchBackground, toggleText, textBackground}
   }
 }
 </script>
@@ -53,10 +85,15 @@ $h2: $h - 4px;
 .xxx-switch {height: $h;width: $h*2;border: none;border-radius: $h/2;position: relative;
   &[disabled]{cursor: not-allowed; opacity: 0.48;}
   & + & {margin-left: 8px;}
-  > span {position: absolute;top: 2px;left: 2px;height: $h2;width: $h2;
+  > .text{
+    width: 30px; line-height: 20px; border-radius: 4px; color: white;
+    margin-left: calc(100% + 10px);outline: none;
+    display: flex; justify-content: center;align-items: center;
+  }
+  > .pellet {position: absolute;top: 2px;left: 2px;height: $h2;width: $h2;
     background: white;border-radius: $h2 / 2;transition: all 250ms;}
-  &.xxx-checked { > span {left: calc(100% - #{$h2} - 2px);} }
+  &.xxx-checked { > .pellet {left: calc(100% - #{$h2} - 2px);} }
   &:focus {outline: none;}
-  &:active{ > span {width: $h2 + 4px;} }
+  &:active{ > .pellet {width: $h2 + 4px;}}
 }
 </style>

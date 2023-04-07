@@ -20,6 +20,13 @@
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
+        <h3>支持文字切换</h3>
+        <div class="demo-component">
+          <Switch v-model:value="bool5" on-text="on" off-text="off"/>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
         <h3>支持 disabled</h3>
         <div class="demo-component">
           <Switch v-model:value="bool8" disabled/>
@@ -31,7 +38,6 @@
         <h3>支持 zoom</h3>
         <div class="demo-component">
           <Switch v-model:value="bool2" zoom="1.2"/>
-          <Switch v-model:value="bool3"/>
           <Switch v-model:value="bool4" zoom="0.8"/>
         </div>
         <div class="demo-actions">查看代码</div>
@@ -39,9 +45,9 @@
       <div class="demo">
         <h3>支持背景色</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool5" active-color="#77c88d" inactive-color="#c0e5ca"/>
-          <Switch v-model:value="bool6" active-color="#77b0c8" inactive-color="#c0dae5"/>
-          <Switch v-model:value="bool7" active-color="#ff6b89" inactive-color="#ffd1da"/>
+          <Switch v-model:value="bool5" on-background="#77c88d" off-background="#c0e5ca"/>
+          <Switch v-model:value="bool6" on-background="#77b0c8" off-background="#c0dae5"/>
+          <Switch v-model:value="bool7" on-background="#ff6b89" off-background="#ffd1da"/>
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -58,7 +64,7 @@ export default {
     const bool1 = ref(false)
     const bool2 = ref(false)
     const bool3 = ref(true)
-    const bool4 = ref(false)
+    const bool4 = ref(true)
     const bool5 = ref(true)
     const bool6 = ref(true)
     const bool7 = ref(true)
