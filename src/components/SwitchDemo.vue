@@ -15,7 +15,33 @@
       <div class="demo">
         <h3>常规用法</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool"/>
+          <Switch v-model:value="bool1"/>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 disabled</h3>
+        <div class="demo-component">
+          <Switch v-model:value="bool8" disabled/>
+          <Switch v-model:value="bool9" disabled/>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 zoom</h3>
+        <div class="demo-component">
+          <Switch v-model:value="bool2" zoom="1.2"/>
+          <Switch v-model:value="bool3"/>
+          <Switch v-model:value="bool4" zoom="0.8"/>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持背景色</h3>
+        <div class="demo-component">
+          <Switch v-model:value="bool5" active-color="#77c88d" inactive-color="#c0e5ca"/>
+          <Switch v-model:value="bool6" active-color="#77b0c8" inactive-color="#c0dae5"/>
+          <Switch v-model:value="bool7" active-color="#ff6b89" inactive-color="#ffd1da"/>
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -29,8 +55,16 @@ import {ref} from 'vue';
 export default {
   components: {Switch},
   setup(){
-    const bool = ref(false)
-    return {bool}
+    const bool1 = ref(false)
+    const bool2 = ref(false)
+    const bool3 = ref(true)
+    const bool4 = ref(false)
+    const bool5 = ref(true)
+    const bool6 = ref(true)
+    const bool7 = ref(true)
+    const bool8 = ref(true)
+    const bool9 = ref(false)
+    return {bool1, bool2, bool3, bool4, bool5, bool6, bool7, bool8, bool9}
   }
 }
 </script>
