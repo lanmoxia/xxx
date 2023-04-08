@@ -82,18 +82,30 @@ export default {
 <style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-.xxx-switch {height: $h;width: $h*2;border: none;border-radius: $h/2;position: relative;
-  &[disabled]{cursor: not-allowed; opacity: 0.48;}
+
+.xxx-switch {
+  width: calc(#{$h}*2); height: $h;
+  border: none; border-radius: calc(#{$h}/2); position: relative;
+  &[disabled]{
+    cursor: not-allowed; opacity: 0.48;
+  }
   & + & {margin-left: 8px;}
   > .text{
     width: 30px; line-height: 20px; border-radius: 4px; color: white;
     margin-left: calc(100% + 10px);outline: none;
     display: flex; justify-content: center;align-items: center;
   }
-  > .pellet {position: absolute;top: 2px;left: 2px;height: $h2;width: $h2;
-    background: white;border-radius: $h2 / 2;transition: all 250ms;}
-  &.xxx-checked { > .pellet {left: calc(100% - #{$h2} - 2px);} }
+  > .pellet {
+    width: $h2; height: $h2; background: white;
+    position: absolute;top: 2px;left: 2px;
+    border-radius: calc(#{$h2}/2);transition: all 250ms;}
+  &.xxx-checked {
+    > .pellet {left: calc(100% - #{$h2} - 2px);}
+  }
   &:focus {outline: none;}
-  &:active{ > .pellet {width: $h2 + 4px;}}
+  &:active{ > .pellet {width: calc(#{$h2} + 4px);}}
+  &.xxx-checked:active{
+    > .pellet {width: calc(#{$h2} + 4px); margin-left: -4px;}
+  }
 }
 </style>

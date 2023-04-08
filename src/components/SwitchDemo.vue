@@ -15,39 +15,35 @@
       <div class="demo">
         <h3>常规用法</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool1"/>
+          <Switch1Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持文字切换</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool5" on-text="on" off-text="off"/>
+          <Switch2Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 disabled</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool8" disabled/>
-          <Switch v-model:value="bool9" disabled/>
+         <Switch3Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 zoom</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool2" zoom="1.2"/>
-          <Switch v-model:value="bool4" zoom="0.8"/>
+          <Switch4Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持背景色</h3>
         <div class="demo-component">
-          <Switch v-model:value="bool5" on-background="#77c88d" off-background="#c0e5ca"/>
-          <Switch v-model:value="bool6" on-background="#77b0c8" off-background="#c0dae5"/>
-          <Switch v-model:value="bool7" on-background="#ff6b89" off-background="#ffd1da"/>
+          <Switch5Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -56,21 +52,16 @@
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue';
-import {ref} from 'vue';
+
+import Switch1Demo from './switchDemo/Switch1.demo.vue'
+import Switch2Demo from './switchDemo/Switch2.demo.vue'
+import Switch3Demo from './switchDemo/Switch3.demo.vue'
+import Switch4Demo from './switchDemo/Switch4.demo.vue'
+import Switch5Demo from './switchDemo/Switch5.demo.vue'
 export default {
-  components: {Switch},
+  components: {Switch1Demo, Switch2Demo, Switch3Demo, Switch4Demo, Switch5Demo},
   setup(){
-    const bool1 = ref(false)
-    const bool2 = ref(false)
-    const bool3 = ref(true)
-    const bool4 = ref(true)
-    const bool5 = ref(true)
-    const bool6 = ref(true)
-    const bool7 = ref(true)
-    const bool8 = ref(true)
-    const bool9 = ref(false)
-    return {bool1, bool2, bool3, bool4, bool5, bool6, bool7, bool8, bool9}
+
   }
 }
 </script>
