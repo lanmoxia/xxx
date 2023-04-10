@@ -16,9 +16,14 @@
         <h3>支持 loading</h3>
         <div class="demo-component">
           <Button @click="toggle">toggle</Button>
-          <Dialog v-model:visible="visible"
-              :okFn="fn1" :cancelFn="fn2"
-              :close-on-click-overlay="false">
+          <Dialog v-model:visible="visible" :okFn="fn1" :cancelFn="fn2" :close-on-click-overlay="false">
+            <template v-slot:content>
+              <strong>Bold text</strong>
+              <div><p>Normal text content</p></div>
+            </template>
+            <template v-slot:title>
+              <strong>Title</strong>
+            </template>
           </Dialog>
         </div>
         <div class="demo-actions">查看代码</div>
@@ -29,8 +34,8 @@
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue';
-import { ref } from 'vue';
+import Button from '../lib/Button.vue'
+import { ref } from 'vue'
 
 export default {
   components: {Button, Dialog},

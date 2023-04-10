@@ -4,12 +4,11 @@
     <div class="xxx-dialog-wrapper">
       <div class="xxx-dialog">
         <header>
-          标题
+          <slot name="title"/>
           <span @click="close" class="xxx-dialog-close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="okFn">OK</Button>
@@ -85,6 +84,7 @@ $border-color: #d9d9d9;
     transform: translate(-50%, -50%);
     z-index: 11;
   }
+  > header, > main {line-height: 20px;}
 
   > header {
     padding: 12px 16px;
