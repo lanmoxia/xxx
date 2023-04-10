@@ -54,7 +54,10 @@ export default {
         close()
       }else {alert("返回了 false，不能关闭")}
     }
-    const cancelFn = () => {close()}
+    const cancelFn = () => {
+      props.cancelFn?.()
+      close()
+    }
     return {close, cancelFn, okFn, onClickOverlay}
   }
 }

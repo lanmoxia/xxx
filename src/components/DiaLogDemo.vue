@@ -1,21 +1,21 @@
 <template>
   <div class="wrapper">
     <section>
-      <h1>Button 按钮</h1>
+      <h1>Dialog 对话框</h1>
       <p>点击以开始即时操作。</p>
     </section>
     <section>
       <h2>应用场景</h2>
-      <p>响应用户点击行为，触发相应业务逻辑。</p>
+      <p>需要与用户交互，同时避免中断用户的操作流程时。</p>
     </section>
     <section>
       <h2>代码示例</h2>
     </section>
     <div>
       <div class="demo">
-        <h3>支持 loading</h3>
+        <h3>组件式使用</h3>
         <div class="demo-component">
-          <Button @click="toggle">toggle</Button>
+          <Button @click="toggle">打开对话框</Button>
           <Dialog v-model:visible="visible" :okFn="fn1" :cancelFn="fn2" :close-on-click-overlay="false">
             <template v-slot:content>
               <strong>Bold text</strong>
@@ -28,6 +28,13 @@
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
+      <div class="demo">
+        <h3>命令式使用</h3>
+        <div class="demo-component">
+          <Button @click="showDialog">打开对话框</Button>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
     </div>
   </div>
 </template>
@@ -36,6 +43,7 @@
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue'
 import { ref } from 'vue'
+import {openDialog} from '../lib/openDialog.ts'
 
 export default {
   components: {Button, Dialog},
@@ -44,7 +52,16 @@ export default {
     const toggle = () => {visible.value = !visible.value}
     const fn1 = () => {return false}
     const fn2 = () => {}
-    return {visible, toggle, fn1, fn2}
+
+    const showDialog = () => {
+      openDialog({
+        title: "Title",
+        content: "This is the test text content",
+        okFn(){console.log('ok')},
+        cancelFn(){console.log('cancel')}
+      })
+    }
+    return {visible, toggle, fn1, fn2, showDialog}
   }
 }
 </script>
