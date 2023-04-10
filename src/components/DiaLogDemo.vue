@@ -16,7 +16,10 @@
         <h3>支持 loading</h3>
         <div class="demo-component">
           <Button @click="toggle">toggle</Button>
-          <Dialog v-model:visible="visible"></Dialog>
+          <Dialog v-model:visible="visible"
+              :okFn="fn1" :cancelFn="fn2"
+              :close-on-click-overlay="false">
+          </Dialog>
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -33,10 +36,10 @@ export default {
   components: {Button, Dialog},
   setup(){
     const visible = ref(false)
-    const toggle = () => {
-      visible.value = !visible.value
-    }
-    return {visible, toggle}
+    const toggle = () => {visible.value = !visible.value}
+    const fn1 = () => {return false}
+    const fn2 = () => {}
+    return {visible, toggle, fn1, fn2}
   }
 }
 </script>

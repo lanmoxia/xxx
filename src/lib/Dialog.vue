@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-    <div class="xxx-dialog-overlay"></div>
+    <div class="xxx-dialog-overlay" @click="onClickOverlay"></div>
     <div class="xxx-dialog-wrapper">
       <div class="xxx-dialog">
         <header>
@@ -12,8 +12,8 @@
           <p>第二行字</p>
         </main>
         <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
+          <Button level="main" @click="okFn">OK</Button>
+          <Button @click="cancelFn">Cancel</Button>
         </footer>
       </div>
     </div>
@@ -29,15 +29,31 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    okFn: {type: Function},
+    cancelFn: {type: Function},
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
     }
   },
   setup(props, context){
+    // 开关
+    const onClickOverlay = () => {
+      if(props.closeOnClickOverlay){close()}
+    }
+
     const close = () =>{
       context.emit('update:visible', false)
     }
-    const cancel = () => {close()}
-    const ok = () => {close()}
-    return {close, cancel, ok}
+    const okFn = () => {
+      if(props.okFn?.() !== false){
+        alert('返回了 true，可以关闭了')
+        close()
+      }else {alert("返回了 false，不能关闭")}
+    }
+    const cancelFn = () => {close()}
+    return {close, cancelFn, okFn, onClickOverlay}
   }
 }
 </script>
