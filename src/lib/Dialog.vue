@@ -50,9 +50,9 @@ export default {
     }
     const okFn = () => {
       if(props.okFn?.() !== false){
-        alert('返回了 true，可以关闭了')
+        alert('已经完成，可以关闭')
         close()
-      }else {alert("返回了 false，不能关闭")}
+      }else {alert("完成后才能关闭")}
     }
     const cancelFn = () => {
       props.cancelFn?.()

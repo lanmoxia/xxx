@@ -15,23 +15,14 @@
       <div class="demo">
         <h3>组件式使用</h3>
         <div class="demo-component">
-          <Button @click="toggle">打开对话框</Button>
-          <Dialog v-model:visible="visible" :okFn="fn1" :cancelFn="fn2" :close-on-click-overlay="false">
-            <template v-slot:content>
-              <strong>Bold text</strong>
-              <div><p>Normal text content</p></div>
-            </template>
-            <template v-slot:title>
-              <strong>Title</strong>
-            </template>
-          </Dialog>
+          <Dialog1Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>命令式使用</h3>
         <div class="demo-component">
-          <Button @click="showDialog">打开对话框</Button>
+          <Dialog2Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -42,27 +33,11 @@
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue'
 import Button from '../lib/Button.vue'
-import { ref } from 'vue'
-import {openDialog} from '../lib/openDialog.ts'
+import Dialog1Demo from './dialog/Dialog1Demo.vue';
+import Dialog2Demo from './dialog/Dialog2Demo.vue';
 
 export default {
-  components: {Button, Dialog},
-  setup(){
-    const visible = ref(false)
-    const toggle = () => {visible.value = !visible.value}
-    const fn1 = () => {return false}
-    const fn2 = () => {}
-
-    const showDialog = () => {
-      openDialog({
-        title: "Title",
-        content: "This is the test text content",
-        okFn(){console.log('ok')},
-        cancelFn(){console.log('cancel')}
-      })
-    }
-    return {visible, toggle, fn1, fn2, showDialog}
-  }
+  components: {Dialog2Demo, Dialog1Demo, Button, Dialog}
 }
 </script>
 
