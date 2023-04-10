@@ -1,25 +1,44 @@
 <template>
-  <div class="xxx-dialog-overlay"></div>
-  <div class="xxx-dialog-wrapper">
-    <div class="xxx-dialog">
-      <header>标题 <span class="xxx-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button level="main">OK</Button>
-        <Button>Cancel</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="xxx-dialog-overlay"></div>
+    <div class="xxx-dialog-wrapper">
+      <div class="xxx-dialog">
+        <header>
+          标题
+          <span @click="close" class="xxx-dialog-close"></span>
+        </header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button level="main" @click="ok">OK</Button>
+          <Button @click="cancel">Cancel</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
 import Button from './Button.vue'
 
 export default {
-  components: {Button}
+  components: {Button},
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(props, context){
+    const close = () =>{
+      context.emit('update:visible', false)
+    }
+    const cancel = () => {close()}
+    const ok = () => {close()}
+    return {close, cancel, ok}
+  }
 }
 </script>
 
