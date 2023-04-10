@@ -15,72 +15,35 @@
       <div class="demo">
         <h3>常规用法</h3>
         <div class="demo-component">
-          <Button>Button</Button>
-          <Button theme="link">Link</Button>
-          <Button theme="text">Text</Button>
+          <Button1Demo/>
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 size</h3>
         <div class="demo-component">
-          <div>
-            <Button size="big">大大大</Button>
-            <Button>普普通通</Button>
-            <Button size="small">小小小小</Button>
-          </div>
-          <div>
-            <Button theme="link" size="big">大大大</Button>
-            <Button theme="link">普普通通</Button>
-            <Button theme="link" size="small">小小小小</Button>
-          </div>
-          <div>
-            <Button theme="text" size="big">大大大</Button>
-            <Button theme="text">普普通通</Button>
-            <Button theme="text" size="small">小小小小</Button>
-          </div>
+          <Button2Demo/>
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 level</h3>
         <div class="demo-component">
-          <div>
-            <Button level="main">主要按钮</Button>
-            <Button>普通按钮</Button>
-            <Button level="danger">危险按钮</Button>
-          </div>
-          <div>
-            <Button theme="link" level="main">主要链接</Button>
-            <Button theme="link">普通链接</Button>
-            <Button theme="link" level="danger">危险链接</Button>
-          </div>
-          <div>
-            <Button theme="text" level="main">主要链接</Button>
-            <Button theme="text">普通链接</Button>
-            <Button theme="text" level="danger">危险链接</Button>
-          </div>
+          <Button3Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 disabled</h3>
         <div class="demo-component">
-          <div>
-            <Button disabled>禁用按钮</Button>
-            <Button theme="link" disabled>禁用链接按钮</Button>
-            <Button theme="text" disabled>禁用按钮</Button>
-          </div>
+          <Button4Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 loading</h3>
         <div class="demo-component">
-          <div>
-            <Button loading>加载中</Button>
-            <Button>加载完成</Button>
-          </div>
+          <Button5Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -90,8 +53,13 @@
 
 <script lang="ts">
 import Button from '../lib/Button.vue'
+import Button1Demo from './buttonDemo/Button1Demo.vue';
+import Button2Demo from './buttonDemo/Button2Demo.vue';
+import Button3Demo from './buttonDemo/Button3Demo.vue';
+import Button4Demo from './buttonDemo/Button4Demo.vue';
+import Button5Demo from './buttonDemo/Button5Demo.vue';
 export default {
-  components: {Button}
+  components: {Button5Demo, Button4Demo, Button3Demo, Button2Demo, Button1Demo, Button}
 }
 </script>
 
