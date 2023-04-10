@@ -3,6 +3,8 @@ import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
 import ButtonDemo from './components/ButtonDemo.vue';
 import SwitchDemo from './components/SwitchDemo.vue'
+import DiaLogDemo from './components/DiaLogDemo.vue'
+
 const history = createWebHashHistory()
 export const router = createRouter({
   history: history,
@@ -10,7 +12,8 @@ export const router = createRouter({
     { path: '/', component: Home },
     { path: '/doc', component: Doc, children: [
         {path: 'button', component: ButtonDemo},
-        {path: 'switch', component: SwitchDemo}
+        {path: 'switch', component: SwitchDemo},
+        {path: 'dialog', component: DiaLogDemo}
       ]}
   ]
 })
