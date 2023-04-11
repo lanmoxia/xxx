@@ -16,7 +16,7 @@
           <ol>
             <li>
               <h5>Basic</h5>
-              <router-link to="/doc/grid">Layout 布局</router-link>
+              <router-link to="/doc/grid">Grid 删格</router-link>
               <router-link to="/doc/button">Button 按钮</router-link>
             </li>
             <li>
