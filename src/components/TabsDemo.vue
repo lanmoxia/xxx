@@ -13,12 +13,12 @@
     </section>
     <div>
       <div class="demo">
-        <h3>组件式使用</h3>
+        <h3>常规用法</h3>
         <div class="demo-component">
-          <Tabs>
-            <Tab title="导航1">内容1</Tab>
-            <Tab title="导航2">内容2</Tab>
-            <Tab title="导航3">内容2</Tab>
+          <Tabs v-model:selected="defaultTitle">
+            <Tab title="Tab1">内容1</Tab>
+            <Tab title="Tab2">内容2</Tab>
+            <Tab title="Tab3">内容2</Tab>
           </Tabs>
         </div>
         <div class="demo-actions">查看代码</div>
@@ -31,8 +31,13 @@
 
 import Tabs from '../lib/Tabs.vue';
 import Tab from '../lib/Tab.vue';
+import { ref } from 'vue';
 export default {
-  components: {Tab, Tabs}
+  components: {Tab, Tabs},
+  setup(){
+    const defaultTitle = ref('Tab2')
+    return {defaultTitle}
+  }
 }
 </script>
 
