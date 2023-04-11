@@ -16,9 +16,9 @@
         <h3>常规用法</h3>
         <div class="demo-component">
           <Tabs v-model:selected="defaultTitle">
-            <Tab title="Tab1">内容1</Tab>
-            <Tab title="Tab2">内容2</Tab>
-            <Tab title="Tab3">内容2</Tab>
+            <Tab title="Tab1">Content of Tab 1</Tab>
+            <Tab title="Tab2">Content of Tab 2</Tab>
+            <Tab title="Tab3">Content of Tab 3</Tab>
           </Tabs>
         </div>
         <div class="demo-actions">查看代码</div>
