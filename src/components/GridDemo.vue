@@ -13,25 +13,69 @@
     </section>
     <div>
       <div class="demo">
-        <h3>基础删格</h3>
+        <h3>常规使用</h3>
         <div class="demo-component">
           <Row>
-            <Col :span="24"><div class="content light"></div></Col>
+            <Col span="12"><div class="content light">Col-12</div></Col>
+            <Col span="12"><div class="content dark">Col-12</div></Col>
           </Row>
           <Row>
-            <Col :span="12"><div class="content light"></div></Col>
-            <Col :span="12"><div class="content dark"></div></Col>
+            <Col span="8"><div class="content dark">Col-8</div></Col>
+            <Col span="8"><div class="content light">Col-8</div></Col>
+            <Col span="8"><div class="content dark">Col-8</div></Col>
           </Row>
           <Row>
-            <Col :span="8"><div class="content dark"></div></Col>
-            <Col :span="8"><div class="content light"></div></Col>
-            <Col :span="8"><div class="content dark"></div></Col>
+            <Col span="6"><div class="content light">Col-6</div></Col>
+            <Col span="6"><div class="content dark">Col-6</div></Col>
+            <Col span="6"><div class="content light">Col-6</div></Col>
+            <Col span="6"><div class="content dark">Col-6</div></Col>
           </Row>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 gutter</h3>
+        <div class="demo-component">
+          <Row gutter="10">
+            <Col span="6"><div class="content light">Col-6</div></Col>
+            <Col span="6"><div class="content dark">Col-6</div></Col>
+            <Col span="6"><div class="content light">Col-6</div></Col>
+            <Col span="6"><div class="content dark">Col-6</div></Col>
+          </Row>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 offset</h3>
+        <div class="demo-component">
           <Row>
-            <Col :span="6"><div class="content light"></div></Col>
-            <Col :span="6"><div class="content dark"></div></Col>
-            <Col :span="6"><div class="content light"></div></Col>
-            <Col :span="6"><div class="content dark"></div></Col>
+            <Col span="4"><div class="content dark">Col-4</div></Col>
+            <Col span="4" offset="1"><div class="content light">Col-4</div></Col>
+            <Col span="4" offset="2"><div class="content dark">Col-4</div></Col>
+            <Col span="4" offset="3"><div class="content light">Col-4</div></Col>
+          </Row>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 flex</h3>
+        <div class="demo-component">
+          <Row justify="space-around">
+            <Col span="5"><div class="content dark">Col-5</div></Col>
+            <Col span="5"><div class="content light">Col-5</div></Col>
+            <Col span="5"><div class="content dark">Col-5</div></Col>
+          </Row>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 order</h3>
+        <div class="demo-component">
+          <Row>
+            <Col span="6" order="1"><div class="content light">Col-6(1)</div></Col>
+            <Col span="6" order="3"><div class="content light">Col-6(2)</div></Col>
+            <Col span="6" order="2"><div class="content dark">Col-6(3)</div></Col>
+            <Col span="6" order="4"><div class="content dark">Col-6(4)</div></Col>
           </Row>
         </div>
         <div class="demo-actions">查看代码</div>
@@ -68,10 +112,12 @@ export default {
     margin-bottom: 32px;
     &-component {
       padding: 16px;
+      max-width: 1000px;
+      margin: 0 auto;
       .xxx-row {
         margin-bottom: 18px;
         &:last-child {margin-bottom: 0;}
-        .content {height: 40px;}
+        .content {height: 40px; color: white; line-height: 40px; text-align: center;}
         .light {background: #d7e5f1}
         .dark {background: darken(#d7e5f1, 8%);}
       }
