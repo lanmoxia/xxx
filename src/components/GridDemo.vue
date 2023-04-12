@@ -80,6 +80,26 @@
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
+      <div class="demo">
+        <h3>支持响应式</h3>
+        <div class="demo-component">
+          <Row>
+            <Col xs="1" sm="4" md="3" lg="4" xl="2" xxl="6">
+              <div class="content dark"></div>
+            </Col>
+            <Col xs="2" sm="3" md="2" lg="2" xl="4" xxl="1">
+              <div class="content light"></div>
+            </Col>
+            <Col xs="3" sm="2" md="3" lg="2" xl="1" xxl="1">
+              <div class="content dark"></div>
+            </Col>
+            <Col xs="4" sm="1" md="2" lg="2" xl="3" xxl="2">
+              <div class="content light"></div>
+            </Col>
+          </Row>
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
     </div>
   </div>
 </template>
@@ -112,7 +132,7 @@ export default {
     margin-bottom: 32px;
     &-component {
       padding: 16px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       .xxx-row {
         margin-bottom: 18px;
@@ -121,7 +141,6 @@ export default {
         .light {background: #d7e5f1}
         .dark {background: darken(#d7e5f1, 8%);}
       }
-
     }
     &-actions {
       padding: 8px 16px;
