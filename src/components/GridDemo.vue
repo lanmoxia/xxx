@@ -15,88 +15,42 @@
       <div class="demo">
         <h3>常规使用</h3>
         <div class="demo-component">
-          <Row>
-            <Col span="12"><div class="content light">Col-12</div></Col>
-            <Col span="12"><div class="content dark">Col-12</div></Col>
-          </Row>
-          <Row>
-            <Col span="8"><div class="content dark">Col-8</div></Col>
-            <Col span="8"><div class="content light">Col-8</div></Col>
-            <Col span="8"><div class="content dark">Col-8</div></Col>
-          </Row>
-          <Row>
-            <Col span="6"><div class="content light">Col-6</div></Col>
-            <Col span="6"><div class="content dark">Col-6</div></Col>
-            <Col span="6"><div class="content light">Col-6</div></Col>
-            <Col span="6"><div class="content dark">Col-6</div></Col>
-          </Row>
+          <Grid1Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 gutter</h3>
         <div class="demo-component">
-          <Row gutter="10">
-            <Col span="6"><div class="content light">Col-6</div></Col>
-            <Col span="6"><div class="content dark">Col-6</div></Col>
-            <Col span="6"><div class="content light">Col-6</div></Col>
-            <Col span="6"><div class="content dark">Col-6</div></Col>
-          </Row>
+          <Grid2Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 offset</h3>
         <div class="demo-component">
-          <Row>
-            <Col span="4"><div class="content dark">Col-4</div></Col>
-            <Col span="4" offset="1"><div class="content light">Col-4</div></Col>
-            <Col span="4" offset="2"><div class="content dark">Col-4</div></Col>
-            <Col span="4" offset="3"><div class="content light">Col-4</div></Col>
-          </Row>
-        </div>
-        <div class="demo-actions">查看代码</div>
-      </div>
-      <div class="demo">
-        <h3>支持 flex</h3>
-        <div class="demo-component">
-          <Row justify="space-around">
-            <Col span="5"><div class="content dark">Col-5</div></Col>
-            <Col span="5"><div class="content light">Col-5</div></Col>
-            <Col span="5"><div class="content dark">Col-5</div></Col>
-          </Row>
+         <Grid3Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持 order</h3>
         <div class="demo-component">
-          <Row>
-            <Col span="6" order="1"><div class="content light">Col-6(1)</div></Col>
-            <Col span="6" order="3"><div class="content light">Col-6(2)</div></Col>
-            <Col span="6" order="2"><div class="content dark">Col-6(3)</div></Col>
-            <Col span="6" order="4"><div class="content dark">Col-6(4)</div></Col>
-          </Row>
+          <Grid5Demo />
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>支持 flex</h3>
+        <div class="demo-component">
+          <Grid4Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
       <div class="demo">
         <h3>支持响应式</h3>
         <div class="demo-component">
-          <Row>
-            <Col xs="1" sm="4" md="3" lg="4" xl="2" xxl="6">
-              <div class="content dark"></div>
-            </Col>
-            <Col xs="2" sm="3" md="2" lg="2" xl="4" xxl="1">
-              <div class="content light"></div>
-            </Col>
-            <Col xs="3" sm="2" md="3" lg="2" xl="1" xxl="1">
-              <div class="content dark"></div>
-            </Col>
-            <Col xs="4" sm="1" md="2" lg="2" xl="3" xxl="2">
-              <div class="content light"></div>
-            </Col>
-          </Row>
+          <Grid6Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -108,8 +62,14 @@
 
 import Col from '../lib/Col.vue';
 import Row from '../lib/Row.vue';
+import Grid1Demo from './grid/Grid1Demo.vue';
+import Grid6Demo from './grid/Grid6Demo.vue';
+import Grid5Demo from './grid/Grid5Demo.vue';
+import Grid4Demo from './grid/Grid4Demo.vue';
+import Grid3Demo from './grid/Grid3Demo.vue';
+import Grid2Demo from './grid/Grid2Demo.vue';
 export default {
-  components: {Row, Col}
+  components: {Grid2Demo, Grid3Demo, Grid4Demo, Grid5Demo, Grid6Demo, Grid1Demo, Row, Col}
 }
 </script>
 
@@ -134,13 +94,6 @@ export default {
       padding: 16px;
       max-width: 1200px;
       margin: 0 auto;
-      .xxx-row {
-        margin-bottom: 18px;
-        &:last-child {margin-bottom: 0;}
-        .content {height: 40px; color: white; line-height: 40px; text-align: center;}
-        .light {background: #d7e5f1}
-        .dark {background: darken(#d7e5f1, 8%);}
-      }
     }
     &-actions {
       padding: 8px 16px;
