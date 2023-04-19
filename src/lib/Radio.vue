@@ -1,10 +1,12 @@
 <template>
   <div class="xxx-radio">
+    {{portrait}}
     <label
         class="xxx-radio-item"
-        v-for="(item, index) in options" :key="index"
+        v-for="(item, index) in options" :key="item.value"
         @click="changeChecked(item,index)"
-        :class="{'xxx-radio-disabled': item.disabled}">
+        :class="{'xxx-radio-disabled': item.disabled}"
+        :style="{display: portrait ? 'inline-flex' : 'flex'}">
       <span class="xxx-radio-icon" :class="{'xxx-radio-checked': radioIndex === index}"></span>
       <span class="xxx-radio-text">{{item.label}}</span>
     </label>
@@ -19,16 +21,23 @@ export default {
     options: {
       type: Array,
       default: () => []
+    },
+    radioIndex: {
+      type: Number,
+      default: 0
+    },
+    portrait: {
+      type: Boolean,
+      default: false
     }
   },
-  setup(){
-    const radioIndex = ref(0)
-    const changeChecked = (e: any, index: any) => {
-      if(!e.disabled){
-        radioIndex.value = index
-      }
+  setup(props: any){
+    const radioIndex = ref(props.radioIndex)
+    const flexStyle = ref('inline-flex')
+    const changeChecked = (e:any, index:any) => {
+      if(!e.disabled){radioIndex.value = index}
     }
-    return {radioIndex, changeChecked}
+    return {changeChecked, flexStyle, radioIndex}
   }
 }
 </script>
@@ -38,7 +47,6 @@ export default {
   color: rgba(0, 0, 0, 0.65);
   &-item {
     cursor: pointer;
-    display: inline-flex;
     justify-content: flex-start;
     align-items: center;
     &:hover{

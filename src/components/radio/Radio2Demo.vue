@@ -1,5 +1,5 @@
 <template>
-  <Radio :options="options" :radio-index="radioIndex"></Radio>
+  <Radio :options="options" portrait></Radio>
 </template>
 
 <script lang="ts">
@@ -12,17 +12,12 @@ export default {
       options: [
         {label: "Apple", value: 1},
         {label: "Orange", value: 2},
-        {label: "Pear", value: 3},
-        {label: "Disabled", value: 4, disabled: true}
+        {label: "Pear", value: 3, disabled: true},
+        {label: "Disabled", value: 4}
       ],
-      radioIndex: ref(2)
     })
-    const {options, radioIndex} = state
-    return {options, radioIndex}
+    const {options} = state
+    return {options}
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

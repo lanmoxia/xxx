@@ -1,5 +1,5 @@
 <template>
-  <Radio :options="options" :radio-index="radioIndex"></Radio>
+  <Radio :options="options" v-bind:radio-index="radioIndex"></Radio>
 </template>
 
 <script lang="ts">
@@ -22,7 +22,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

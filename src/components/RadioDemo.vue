@@ -15,7 +15,21 @@
       <div class="demo">
         <h3>常规使用</h3>
         <div class="demo-component">
-          <Radio :options="options"></Radio>
+          <Radio1Demo />
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>纵向布局</h3>
+        <div class="demo-component">
+          <Radio2Demo />
+        </div>
+        <div class="demo-actions">查看代码</div>
+      </div>
+      <div class="demo">
+        <h3>自定义默认值</h3>
+        <div class="demo-component">
+          <Radio3Demo />
         </div>
         <div class="demo-actions">查看代码</div>
       </div>
@@ -25,24 +39,11 @@
 
 <script lang="ts">
 
-
-import {reactive} from 'vue';
-import Radio from '../lib/Radio.vue';
-
+import Radio1Demo from './radio/Radio1Demo.vue'
+import Radio2Demo from './radio/Radio1Demo.vue'
+import Radio3Demo from './radio/Radio1Demo.vue'
 export default {
-  components: {Radio},
-  setup(){
-    const state = reactive({
-      options: [
-        {label: "Apple", value: 1},
-        {label: "Orange", value: 2},
-        {label: "Pear", value: 3},
-        {label: "Disabled", value: 4, disabled: true}
-      ]
-    })
-    const {options} = state
-    return {options, state}
-  }
+  components: {Radio1Demo, Radio2Demo, Radio3Demo}
 }
 </script>
 
